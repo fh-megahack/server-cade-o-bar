@@ -1,9 +1,20 @@
-import express from 'express'
+import express, { Router } from 'express'
 
-const routes = express.Router()
+// API`s
+import BarApi from './api/Bar/BarApi'
+import DiscoveryApi from './api/Discovery/DiscoveryApi'
+import FavoriteApi from './api/Favorite/FavoriteApi'
+import PointApi from './api/Point/PointApi'
+import RatingApi from './api/Rating/RatingApi'
+import UserApi from './api/User/UserApi'
 
-routes.get('/', (req, resp) => {
-  return resp.json({ message: 'Listen port 3333' })
-})
+const routes: Router = express.Router()
+
+BarApi(routes)
+DiscoveryApi(routes)
+FavoriteApi(routes)
+PointApi(routes)
+RatingApi(routes)
+UserApi(routes)
 
 export default routes

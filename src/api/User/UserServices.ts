@@ -1,10 +1,10 @@
 import { Request, Response } from 'express'
-import knex from './../database/connections'
+import knex from '../../database/connections'
 
-class RatingServices {
+class UserServices {
   async getAll(req: Request, resp: Response) {
 
   }
 }
 
-export default RatingServices
+export default UserServices

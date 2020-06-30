@@ -17,5 +17,5 @@ npm install
 npm run dev
 ```
 
-Open your browser and access `localhos:3333`
+Open your browser and access `localhost:3333`
 

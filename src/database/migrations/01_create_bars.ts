@@ -7,10 +7,13 @@ export async function up(knex: Knex) {
     table.string('street').notNullable()
     table.integer('address_number').notNullable()
     table.string('neighborhood').notNullable()
+    table.decimal('latitude').notNullable()
+    table.decimal('longitude').notNullable()
     table.string('city').notNullable()
     table.string('uf', 2).notNullable()
     table.string('website').notNullable()
     table.string('url_image').notNullable()
+    table.string('phone').notNullable()
   })
 }
 
