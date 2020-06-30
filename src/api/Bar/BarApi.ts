@@ -37,7 +37,7 @@ const BarApi = (routes: Router) => {
       barServices.getByCity(String(city)).then((result: Array<Bar>) => {
         if (result && result.length) {
           const serializedBars = result.map((bar) => {
-            const url_image = utils.serializeImages(bar.url_image)
+            const url_image = utils.mountUrlImage(bar.url_image)
             return { ...bar, url_image }
           })
           return resp.json(serializedBars)
@@ -50,7 +50,7 @@ const BarApi = (routes: Router) => {
       barServices.getAll().then((result: Array<Bar>) => {
         if (result) {
           const serializedBars = result.map((bar) => {
-            const url_image = utils.serializeImages(bar.url_image)
+            const url_image = utils.mountUrlImage(bar.url_image)
             return { ...bar, url_image }
           })
           return resp.json(serializedBars)
@@ -71,7 +71,7 @@ const BarApi = (routes: Router) => {
 
     barServices.getById(id).then((result) => {
       if (result) {
-        const img_url = result.url_image ? utils.serializeImages(result.url_image) : result.url_image
+        const img_url = result.url_image ? utils.mountUrlImage(result.url_image) : result.url_image
         return resp.json({ ...result, 'url_image': img_url })
       }
       return resp.status(204).json({})

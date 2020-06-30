@@ -1,12 +1,12 @@
 import Config from './../config'
 
 const Utils = () => {
-  const serializeImages = (url: string) => {
+  const mountUrlImage = (url: string) => {
     return `${Config.path}/images/${url}`
   }
 
   return {
-    serializeImages
+    mountUrlImage
   }
 }
 
