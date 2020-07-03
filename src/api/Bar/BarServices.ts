@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
-import { Request, Response, response } from 'express'
+import { Request, Response } from 'express'
 import knex from '../../database/connections'
-import { StringTagSupport } from 'knex'
 
 const BarServices = () => {
   const create = (req: Request, resp: Response) => {
