@@ -5,6 +5,7 @@ import BarApi from './api/Bar/BarApi'
 import DiscoveryApi from './api/Discovery/DiscoveryApi'
 import FavoriteApi from './api/Favorite/FavoriteApi'
 import PointApi from './api/Point/PointApi'
+import ProductApi from './api/Product/ProductApi'
 import RatingApi from './api/Rating/RatingApi'
 import UserApi from './api/User/UserApi'
 
@@ -14,6 +15,7 @@ BarApi(routes)
 DiscoveryApi(routes)
 FavoriteApi(routes)
 PointApi(routes)
+ProductApi(routes)
 RatingApi(routes)
 UserApi(routes)
 

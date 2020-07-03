@@ -75,10 +75,10 @@ const BarServices = () => {
         if (result) {
           return result
         }
-        return {}
+        return false
       }).catch((error) => {
         console.error('BarServices | Get By ID - ', error)
-        return { error }
+        return false
       })
   }
 

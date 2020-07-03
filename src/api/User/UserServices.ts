@@ -61,7 +61,7 @@ const UserServices = () => {
       })
   }
 
-  const getById = (id: string) => {
+  const getById = (id: number) => {
     return knex('users').where('id', id).first()
       .then((result) => {
         if (result) {
@@ -70,7 +70,7 @@ const UserServices = () => {
         return {}
       }).catch((error) => {
         console.error('UserServices | Get By ID - ', error)
-        return { error }
+        return {}
       })
   }
 

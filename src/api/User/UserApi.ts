@@ -49,7 +49,7 @@ const UserApi = (routes: Router) => {
       return resp.status(400).json('getBarInfo - ID não informado')
     }
 
-    userServices.getById(id).then((result) => {
+    userServices.getById(Number(id)).then((result) => {
       if (result) {
         const url_image = result.image ? utils.mountUrlImage(result.image) : result.image
         return resp.json({ ...result, url_image })
