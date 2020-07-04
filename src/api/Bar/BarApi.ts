@@ -116,7 +116,7 @@ const BarApi = (routes: Router) => {
     }
   }
 
-  async function getBarInfo(req: Request, resp: Response) {
+  async function getFullBarInfo(req: Request, resp: Response) {
     const { id } = req.params
     let response
 
@@ -173,7 +173,7 @@ const BarApi = (routes: Router) => {
 
   routes.post('/bars', createBar)
   routes.get('/bars', getAllBarsInfo)
-  routes.get('/bars/:id', getBarInfo)
+  routes.get('/bars/:id', getFullBarInfo)
   routes.delete('/bars/:id', deleteBar)
 }
 

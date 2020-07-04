@@ -41,3 +41,19 @@ const Login = {
   "email": "pedro@teste.com",
   "password": "pedro123"
 }
+
+const Favorite = {
+  "user_id": 1,
+  "bar_id": 1
+}
+
+const Discovery = {
+  "user_id": 1,
+  "bar_id": 1
+}
+
+const Point = {
+  "user_id": 1,
+  "total_points": 3680,
+  "rescue_points": 1420
+}
