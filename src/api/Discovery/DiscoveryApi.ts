@@ -70,6 +70,18 @@ const DiscoveryApi = (routes: Router) => {
 
   }
 
+  async function getDiscoveryByBarId(req: Request, resp: Response) {
+    const { barId } = req.params
+
+    if (!barId) {
+      return resp.status(400).json('Get Discovery - USER ID não informado')
+    }
+
+    const discoveries: Array<Discovery> = await discoveryServices.getByBarId(Number(barId))
+
+    return resp.json(discoveries)
+  }
+
   function deteleDiscovery(req: Request, resp: Response) {
     const { id } = req.params
 
@@ -89,6 +101,7 @@ const DiscoveryApi = (routes: Router) => {
   routes.post('/discovery', createDiscovery)
   routes.get('/discovery', getAllDiscovery)
   routes.get('/discovery/:userId', getDiscoveryByUserId)
+  routes.get('/discovery/bar/:barId', getDiscoveryByBarId)
   routes.delete('/discovery/:id', deteleDiscovery)
 }
 

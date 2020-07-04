@@ -59,6 +59,19 @@ const DiscoveryServices = () => {
       })
   }
 
+  const getByBarId = (barId: number) => {
+    return knex('users_discovery').where('bar_id', barId).select('*')
+      .then((result) => {
+        if (result) {
+          return result
+        }
+        return []
+      }).catch((error) => {
+        console.error('DiscoveryServices | Get By ID - ', error)
+        return []
+      })
+  }
+
   const deleteById = (id: string) => {
     return knex('users_discovery').where('id', id).del()
       .then((result) => {
@@ -77,6 +90,7 @@ const DiscoveryServices = () => {
     create,
     getAll,
     getByUserId,
+    getByBarId,
     deleteById
   }
 }
