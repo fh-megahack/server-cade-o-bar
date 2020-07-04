@@ -66,7 +66,8 @@ const UserApi = (routes: Router) => {
     userServices.getByEmail(String(email)).then((result: User) => {
       if (result) {
         if (result.password === password) {
-          return resp.json(result)
+          const url_image = result.image ? utils.mountUrlImage(result.image) : result.image
+          return resp.json({ ...result, url_image })
         } else {
           return resp.status(400).json(false)
         }
