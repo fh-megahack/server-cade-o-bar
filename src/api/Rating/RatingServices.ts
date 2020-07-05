@@ -99,6 +99,7 @@ const RatingServices = () => {
       }
     }))
 
+
     if (!serializedRatings) {
       return []
     }

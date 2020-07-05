@@ -119,7 +119,6 @@ const BarApi = (routes: Router) => {
   async function getFullBarInfo(req: Request, resp: Response) {
     const { id } = req.params
     let response
-
     if (!id) {
       return resp.status(400).json('getBarInfo - ID não informado')
     }
