@@ -42,9 +42,9 @@ const DiscoveryApi = (routes: Router) => {
       return resp.status(400).json('Get Discovery - USER ID não informado')
     }
 
-    const favorites: Array<Discovery> = await discoveryServices.getByUserId(Number(userId))
+    const discovery: Array<Discovery> = await discoveryServices.getByUserId(Number(userId))
 
-    const serializedFavorites = await Promise.all(favorites.map(async (el) => {
+    const serializedDiscovery = await Promise.all(discovery.map(async (el) => {
       const { bar_id } = el
 
       const barInfo = await barSerivces.getById(String(bar_id))
@@ -62,11 +62,11 @@ const DiscoveryApi = (routes: Router) => {
       }
     }))
 
-    if (!serializedFavorites) {
+    if (!serializedDiscovery) {
       return resp.json([])
     }
 
-    return resp.json(serializedFavorites)
+    return resp.json(serializedDiscovery)
 
   }
 

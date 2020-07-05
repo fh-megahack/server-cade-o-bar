@@ -25,6 +25,7 @@ const PointApi = (routes: Router) => {
   }
 
   function updatePoints(req: Request, resp: Response) {
+    console.log(req.body)
     pointServices.update(req, resp).then((result) => {
       return result ? resp.json(result) : resp.json({})
     }).catch((error) => {

@@ -14,7 +14,6 @@ const DiscoveryServices = () => {
       month: date.getUTCMonth(),
       day: date.getUTCDay()
     }
-    console.log('========', formatedDate)
 
     const discovery = {
       bar_id: Number(bar_id),
@@ -47,7 +46,7 @@ const DiscoveryServices = () => {
   }
 
   const getByUserId = (userId: number) => {
-    return knex('users_discovery').where('user_id', userId).select('*').orderBy('id', 'desc')
+    return knex('users_discovery').distinct('bar_id').where('user_id', userId).orderBy('id', 'desc')
       .then((result) => {
         if (result) {
           return result

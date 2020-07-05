@@ -1,6 +1,6 @@
 import { Request, Response, Router } from 'express'
 import UserServices from './UserServices'
-
+import PointServices from './../Point/PointServices'
 import Utils from './../../_lib/utils'
 
 interface User {
@@ -16,6 +16,7 @@ interface User {
 
 const UserApi = (routes: Router) => {
   const userServices = UserServices()
+  const pointServices = PointServices()
   const utils = Utils()
 
   function createUser(req: Request, resp: Response) {
@@ -60,22 +61,34 @@ const UserApi = (routes: Router) => {
     })
   }
 
-  function doLogin(req: Request, resp: Response) {
+  async function doLogin(req: Request, resp: Response) {
     const { email, password } = req.body
+    let response
+    if (!email || !password) {
+      return resp.status(400).json({})
+    }
 
-    userServices.getByEmail(String(email)).then((result: User) => {
-      if (result) {
-        if (result.password === password) {
-          const url_image = result.image ? utils.mountUrlImage(result.image) : result.image
-          return resp.json({ ...result, url_image })
-        } else {
-          return resp.status(400).json(false)
-        }
+    const userInfo = await userServices.getByEmail(String(email))
+    if (!userInfo) {
+      return resp.status(400).json({})
+    }
+    if (userInfo.password === password) {
+      const url_image = userInfo.image ? utils.mountUrlImage(userInfo.image) : userInfo.image
+
+      response = { ...userInfo, url_image }
+
+      const points = await pointServices.getByUserId(userInfo.id)
+      if (points && points.length) {
+        response.points = points[0]
       }
-      return resp.status(204).json(false)
-    }).catch((error) => {
-      return resp.json(false)
-    })
+
+      return resp.json(response)
+
+    } else {
+      return resp.status(400).json(false)
+    }
+
+
   }
 
   function deleteUser(req: Request, resp: Response) {
