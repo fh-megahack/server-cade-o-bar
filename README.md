@@ -233,7 +233,7 @@ URL_PATH=http://192.168.1.113:3333 npm run dev
 #### FavoriteAPI
 - Criar um Favorito
   - Método `POST`
-  - URL `/discovery`
+  - URL `/favorite`
   - Body
   ```
   {
@@ -244,15 +244,15 @@ URL_PATH=http://192.168.1.113:3333 npm run dev
   
 - Ler todos os Favoritos
     - Método `GET`
-    - URL `/discovery`
+    - URL `/favorite`
 
 - Ler todos os Favoritos de um Usuário pelo ID do User
     - Método `GET`
-    - URL `/discovery/:userId`
+    - URL `/favorite/:userId`
     
 - Deletar um Favorito pelo ID
     - Método `DELETE`
-    - URL `/discovery/:userId`
+    - URL `/favorite/:userId`
 
 
 #### PointsAPI
