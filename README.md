@@ -17,7 +17,7 @@ No "Cadê o Bar?"  você descobre os melhores estabelecimentos perto da sua lo
 E se gostar do bar, ainda pode deixar ele como favorito para acompanhar as ofertas e desconto!
 Para a AMBEV, uma oportunidade de direcionar uma experiência única de acordo com o perfil de cada usuário!
 
-🔗 [APRESENTAÇÃO EM SLIDES](https://github.com/pedroarm/Private/files/4875966/Cade.o.bar_.2.pdf)
+🔗 [APRESENTAÇÃO EM SLIDES](https://github.com/fh-megahack/server-cade-o-bar/blob/master/public/Apresenta%C3%A7%C3%A3o%20-Cad%C3%AA%20o%20bar.pdf)
 
 
 ## USANDO
@@ -51,11 +51,13 @@ O servidor irá rodar na porta `3333`
 ### Rodando com o Expo
 
 - Para rodar com o Expo é preciso verificar a Url de conexão que o expo gera ao ser executado 
+<img src="./public/Screen%20Shot%202020-07-05%20at%2022.24.34.png" width="400px" />
 
 - Rodar o comando
 ```
 URL_PATH=http://192.168.1.113:3333 npm run dev
 ```
+
 - Agora todos os serviços e API's estarão disponíveis no Expo
 
 - ##### Link: da Aplicação Mobile: [Ir para o repositório do Github](https://github.com/fh-megahack/cade-o-bar-mobile)
